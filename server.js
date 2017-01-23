@@ -6,7 +6,13 @@ var methodOverride = require("method-override");
 
 //set the port and use express
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
+
+//require the files
+var mysqlConnection = require("./config/connect.js")(app);
 
 //listen to the port
-app.listen(port);
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+
+});
