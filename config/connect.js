@@ -19,6 +19,7 @@ module.exports = function connectdb(app) {
 
         //log the database function
         console.log(showDatabase());
+
     });
 
     //a function that queries the database and shows all the burgers in the database
