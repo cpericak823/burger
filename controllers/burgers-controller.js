@@ -8,8 +8,8 @@ var app = express();
 var databaseQueries = require("../models/burger.js");
 
 //export the route to be accessed later
-module.exports = function controller(app) {
+module.exports = function(app) {
     app.get("/", function(req, res) {
-        res.send(databaseQueries);
+        res.render(databaseQueries);
     });
 };

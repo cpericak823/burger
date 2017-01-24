@@ -1,7 +1,10 @@
     //require the mysql connect.js file
     var mysqlConnection = require("../config/connect.js");
 
-    module.exports = function databaseQuery(app) {
+    //the mysqlConnection function to run the connect file
+    mysqlConnection();
+
+    module.exports = function(app) {
 
         //set userInput equal to a variable to be used as a query
         var userInput;
@@ -13,6 +16,4 @@
         }, function(err, res) {
             if (err) throw err;
         });
-
-
     };

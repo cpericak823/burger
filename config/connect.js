@@ -1,4 +1,4 @@
-module.exports = function connectdb(app) {
+module.exports = function() {
     /* require my sql*/
     var mysql = require("mysql");
 
@@ -17,8 +17,9 @@ module.exports = function connectdb(app) {
         if (err) throw err;
         console.log("connected as id " + connection.threadId);
 
-        //log the database function
-        console.log(showDatabase());
+        // //log the database function
+// console.log(showDatabase());
+
 
     });
 
