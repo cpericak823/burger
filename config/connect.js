@@ -1,35 +1,21 @@
-module.exports = function() {
-    /* require my sql*/
-    var mysql = require("mysql");
+module.exports = connection;
 
-    /* connect to my sql*/
-    var connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
+/* require my sql*/
+var mysql = require("mysql");
 
-        user: "root",
+/* connect to my sql*/
+var connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
 
-        password: "tank82391!",
-        database: "burgers_db"
-    });
+    user: "root",
 
-    connection.connect(function(err) {
-        if (err) throw err;
-        console.log("connected as id " + connection.threadId);
+    password: "tank82391!",
+    database: "burgers_db"
+});
 
-        // //log the database function
-// console.log(showDatabase());
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("connected as id " + connection.threadId);
 
-
-    });
-
-    //a function that queries the database and shows all the burgers in the database
-    function showDatabase() {
-        connection.query("SELECT burger_name FROM burgers WHERE burger_name = ?", [userInput], function(err, res) {
-            if (err) throw err;
-            for (var i = 0; i < res.length; i++) {
-                console.log(res[i].burger_name);
-            }
-        });
-    }
-};
+});

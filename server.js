@@ -9,7 +9,14 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 //require the route
-var burgersController = require("./controllers/burgers-controller.js");
+require("./controllers/burgers-controller.js")(app);
+
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(process.cwd() + "/public"));
+
+//require handlebars
+app.engine("handlebars", exprhbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 
 //listen to the port

@@ -1,7 +1,10 @@
 <ul>
 {{#each index}}
-<li>{{body}}</li>
+<li>{{this.id}}</li>
 {{/each}}
 </ul>
-
-<button type="button" class="btn btn-lg btn-primary">Submit</button>
+<div class="form-group">
+          <label for="burger_name"></label>
+          <input type="text" id="burger_name" class="form-control">
+     </div>
+	<button type="button" class="btn btn-lg btn-primary">Submit</button>

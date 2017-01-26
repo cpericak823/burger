@@ -10,6 +10,6 @@ var databaseQueries = require("../models/burger.js");
 //export the route to be accessed later
 module.exports = function(app) {
     app.get("/", function(req, res) {
-        res.render(databaseQueries);
+        res.render("index", { index: [{ id: "foo" }, { id: "bar" }] });
     });
 };
