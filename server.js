@@ -24,6 +24,8 @@ require("./controllers/burgers-controller.js")(app);
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
+//override the method
+app.use(methodOverride("_method"));
 
 //listen to the port
 app.listen(PORT, function() {

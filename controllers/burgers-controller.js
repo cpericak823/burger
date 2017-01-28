@@ -48,10 +48,11 @@ module.exports = function(app) {
 
         //a query that updates the burger
         app.put("/", function(req, res) {
-
+            console.log(req.body);
             //update the burger in the database
             connection.query("UPDATE burgers SET burger_name = ?", {
-                    burger_name: userInput.burger_name,
+
+                    burger_name: req.body.burger_name,
                     devoured: true
                 },
                 function(err) {
@@ -64,10 +65,10 @@ module.exports = function(app) {
         });
 
         //a query that deletes the burger
-        app.delete("/", function(req, res) {
-            connection.query("DELETE FROM burgers WHERE ?", {
-                burger_name: userInput.burger_name,
-                devoured: true
+        app.delete("/:id", function(req, res) {
+            connection.query("DELETE FROM burgers WHERE id = ?", {
+                id: req.params.id
+
             }, function(err, res) {
                 if (err) {
                     console.log(err);

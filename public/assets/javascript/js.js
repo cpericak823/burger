@@ -1,25 +1,32 @@
 $(function() {
-    $("button").on("click", function() {
+    $(".devour").on("submit", function(e) {
+        e.preventDefault();
+        var currentURL = window.location.origin;
+        var userInput = $(this).attr("id");
+
+        console.log(userInput);
         // post the newly added data
-        $.post(currentURL + "/", { burger_name: userInput }, function() {
-
+        $.ajax({
+            url: currentURL + "/",
+            data: { burger_name: userInput },
+            type: "PUT",
+            success: function(res) {
+                window.location.replace('/');
+            }
         });
-        //     //set userInput equal to a variable to be used as a query
-        //     var userInput = $("#burger_name").val().trim();
 
-        //     //call the create new burger function
-        //     createNewBurger(userInput);
     });
-    // //define the createNewBurger function that adds the burger to the database, and posts the new data to the friends array 
-    // function createNewBurger(userInput) {
 
-    //     //use this instead of the port since the url will change after pushing to heroku
-    //     var currentURL = window.location.origin;
-    //     console.log(userInput);
+    $(".create-form").on("submit", function(e) {
+        e.preventDefault();
+        var currentURL = window.location.origin;
+        var userInput = $("#burger_name").val().trim();
+        // post the newly added data
+        $.post(currentURL + "/", { burger_name: userInput }, function(res) {
+            window.location.replace('/');
+        });
 
-    //         //jquery to update the when clicking submit on the the survey page and display name and image of closest match
-    //         $(".burger_list").append("<li>" + userInput + "</li>" + "<button>" + "Devour It" + "</button>");
-    //     });
-    // }
+    });
+
 
 });
