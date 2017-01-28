@@ -11,5 +11,9 @@ date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (id)
 );
 
-SET time_zone='+00:00';
+-- set the current timezone to CST
+SET time_zone='-06:00';
+
+
+
 

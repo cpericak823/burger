@@ -1,5 +1,3 @@
-module.exports = connection;
-
 /* require my sql*/
 var mysql = require("mysql");
 
@@ -14,8 +12,10 @@ var connection = mysql.createConnection({
     database: "burgers_db"
 });
 
+//connect to the database
 connection.connect(function(err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId);
 
 });
+module.exports = connection;
